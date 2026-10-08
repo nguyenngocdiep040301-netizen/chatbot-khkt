@@ -3,9 +3,8 @@ import streamlit as st
 import google.generativeai as genai
 import docx2txt
 
-# --- 1. CẤU HÌNH API KEY CỐ ĐỊNH & MÔ HÌNH ---
-# Lấy API Key từ Streamlit Secrets nếu có, hoặc dùng fallback
-GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "NHAP_API_KEY_CUA_BAN")
+# --- 1. CẤU HÌNH API KEY BẢO MẬT & MÔ HÌNH ---
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "AIzaSy...")
 MODEL_NAME = "gemini-3.8-flash"
 
 st.set_page_config(page_title="Cố vấn Hướng nghiệp AI", page_icon="🎓", layout="centered")
