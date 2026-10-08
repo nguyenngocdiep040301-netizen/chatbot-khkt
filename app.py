@@ -22,7 +22,8 @@ def doc_tat_ca_file_word():
                 noi_dung_tong += f"\n\n--- TÀI LIỆU: {file_name} ---\n" + van_ban
             except Exception:
                 pass
-    return noi_dung_tong
+    # THÊM DÒNG NÀY Ở DƯỚI CÙNG HÀM ĐỂ CẮT BỚT NỘI DUNG QuÁ DÀI:
+    return noi_dung_tong[:40000]
 
 du_lieu_bo_sung = doc_tat_ca_file_word()
 
