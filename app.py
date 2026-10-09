@@ -6,8 +6,10 @@ import docx2txt
 # --- 1. CẤU HÌNH TRANG & LẤY API KEY BẢO MẬT ---
 st.set_page_config(page_title="Cố vấn Hướng nghiệp AI", page_icon="🎓", layout="centered")
 
-# Lấy API Key an toàn từ Streamlit Secrets
+# Lấy API Key và kích hoạt kết nối
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
+genai.configure(api_key=GEMINI_API_KEY)
+
 MODEL_NAME = 'gemini-1.5-flash'
 model = genai.GenerativeModel(MODEL_NAME)
 
