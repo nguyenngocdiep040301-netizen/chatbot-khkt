@@ -10,7 +10,7 @@ st.set_page_config(page_title="Cố vấn Hướng nghiệp AI", page_icon="🎓
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
 genai.configure(api_key=GEMINI_API_KEY)
 
-MODEL_NAME = 'gemini-2.0-flash'
+MODEL_NAME = 'gemini-3.8-flash'
 model = genai.GenerativeModel(MODEL_NAME)
 
 st.title("🎓 Cố vấn Định hướng Nghề nghiệp AI")
