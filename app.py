@@ -27,7 +27,7 @@ def doc_tat_ca_file_word():
                 noi_dung_tong += f"\n\n--- TÀI LIỆU: {file_name} ---\n" + van_ban
             except Exception:
                 pass
-    # Cắt gọn tối đa 25.000 ký tự để AI phản hồi siêu nhanh, không quá tải token
+    # Cắt gọn tối đa 10.000 ký tự để AI phản hồi siêu nhanh, không quá tải token
     return noi_dung_tong[:10000]
 
 du_lieu_bo_sung = doc_tat_ca_file_word()
