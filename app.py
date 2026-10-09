@@ -8,7 +8,7 @@ st.set_page_config(page_title="Cố vấn Hướng nghiệp AI", page_icon="🎓
 
 # Lấy API Key an toàn từ Streamlit Secrets
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", ""))
-MODEL_NAME = "gemini-1.5-flash"
+MODEL_NAME = "gemini-"
 
 st.title("🎓 Cố vấn Định hướng Nghề nghiệp AI")
 st.caption("Dự án KHKT - Tích hợp Mô hình Holland & Dữ liệu Chuyên gia (RAG)")
