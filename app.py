@@ -76,7 +76,7 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         full_response = ""
 try:
             response = client.chat.completions.create(
-                model=model,
+                model="mixtral-8x7b-32768",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
