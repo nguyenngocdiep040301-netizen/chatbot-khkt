@@ -70,28 +70,28 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
     with st.chat_message("user"):
         st.write(prompt)
 
-    # Gọi Groq API để tạo câu trả lời
+# Gọi Groq API để tạo câu trả lời
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        
+
         try:
             # Gọi API streaming tạo trải nghiệm gõ chữ theo thời gian thực
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=st.session_state.messages,
-            temperature=0.7,
-            max_tokens=2048,
-            stream=True
-            
-            for chunk in completion:
-                content = chunk.choices[0].delta.content or ""
-                full_response += content
-                message_placeholder.markdown(full_response + "▌")
-            
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=st.session_state.messages,
+                temperature=0.7,
+                max_tokens=2048,
+                stream=True
+            )
+
+            for chunk in response:
+                if chunk.choices[0].delta.content is not None:
+                    full_response += chunk.choices[0].delta.content
+                    message_placeholder.markdown(full_response + "▌")
+
             message_placeholder.markdown(full_response)
             st.session_state.messages.append({"role": "assistant", "content": full_response})
 
         except Exception as e:
-            error_msg = f"Lỗi kết nối Groq API: {str(e)}. Bạn hãy thử lại sau ít giây nhé!"
-            message_placeholder.error(error_msg)
+            st.error(f"Lỗi kết nối Groq API: {e}. Bạn hãy thử lại sau ít giây nhé!")
