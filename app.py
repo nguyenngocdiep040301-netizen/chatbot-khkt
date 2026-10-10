@@ -75,10 +75,9 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         message_placeholder = st.empty()
         full_response = ""
 
-        try:
-            # Gọi API streaming tạo trải nghiệm gõ chữ theo thời gian thực
+try:
             response = client.chat.completions.create(
-                model=model,
+                model="gemma2-9b-it",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
