@@ -1,3 +1,2 @@
 streamlit
-groq
-docx2txt
+openai
