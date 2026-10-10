@@ -36,7 +36,7 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         
         try:
             response = client.chat.completions.create(
-                model="google/gemini-1.5-flash:free",
+                model="google/gemma-2-9b-it:free",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
