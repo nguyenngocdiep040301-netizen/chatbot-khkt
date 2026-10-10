@@ -14,7 +14,10 @@ client = OpenAI(
 
 st.title("🎓 Cố vấn Định hướng Nghề nghiệp AI")
 st.caption("Dự án KHKT - Tích hợp Mô hình Holland & Dữ liệu Chuyên gia")
-
+if st.button("🗑️ Làm mới cuộc trò chuyện"):
+    st.session_state.messages = []
+    st.session_state.messages.append({"role": "assistant", "content": "Xin chào! Tớ là Cố vấn Hướng nghiệp AI. Cậu tên là gì và hiện đang học lớp mấy rồi?"})
+    st.rerun()
 # 3. QUẢN LÝ TIN NHẮN (SESSION STATE)
 if "messages" not in st.session_state:
     st.session_state.messages = []
