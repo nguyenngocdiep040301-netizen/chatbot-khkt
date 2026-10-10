@@ -9,7 +9,7 @@ st.set_page_config(page_title="Cố vấn Hướng nghiệp AI", page_icon="🎓
 # Lấy Groq API Key từ Streamlit Secrets hoặc biến môi trường
 GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY", ""))
 client = Groq(api_key=GROQ_API_KEY)
-model = "llama3-8b-8192"
+model="mixtral-8x7b-32768"
 st.title("🎓 Cố vấn Định hướng Nghề nghiệp AI")
 st.caption("Dự án KHKT - Tích hợp Mô hình Holland & Dữ liệu Chuyên gia (RAG)")
 
