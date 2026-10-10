@@ -9,7 +9,7 @@ st.set_page_config(page_title="Cố vấn Hướng nghiệp AI", page_icon="🎓
 # Lấy Groq API Key từ Streamlit Secrets hoặc biến môi trường
 GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY", ""))
 client = Groq(api_key=GROQ_API_KEY)
-model="mixtral-8x7b-32768"
+model = "llama-3.3-70b-versatile"
 st.title("🎓 Cố vấn Định hướng Nghề nghiệp AI")
 st.caption("Dự án KHKT - Tích hợp Mô hình Holland & Dữ liệu Chuyên gia (RAG)")
 
@@ -77,13 +77,12 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         
         try:
             # Gọi API streaming tạo trải nghiệm gõ chữ theo thời gian thực
-            completion = client.chat.completions.create(
-                model="mixtral-8x7b-32768",
-                messages=st.session_state.messages,
-                temperature=0.7,
-                max_tokens=2048,
-                stream=True,
-            )
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=st.session_state.messages,
+            temperature=0.7,
+            max_tokens=2048,
+            stream=True
             
             for chunk in completion:
                 content = chunk.choices[0].delta.content or ""
