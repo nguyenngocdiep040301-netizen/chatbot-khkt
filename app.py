@@ -74,7 +74,6 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-
 try:
             response = client.chat.completions.create(
                 model="gemma2-9b-it",
@@ -92,5 +91,5 @@ try:
             message_placeholder.markdown(full_response)
             st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-        except Exception as e:
+except Exception as e:
             st.error(f"Lỗi kết nối Groq API: {e}. Bạn hãy thử lại sau ít giây nhé!")
