@@ -35,8 +35,9 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         full_response = ""
         
         try:
+            # Sử dụng mô hình NVIDIA miễn phí đã lấy ID
             response = client.chat.completions.create(
-                model="mistralai/mistral-7b-instruct:free",
+                model="nvidia/nemotron-3-ultra-550b-a55b:free",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
