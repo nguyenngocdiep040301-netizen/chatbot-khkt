@@ -78,7 +78,7 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         try:
             # Gọi API streaming tạo trải nghiệm gõ chữ theo thời gian thực
             completion = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
+                model="mixtral-8x7b-32768",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
