@@ -14,10 +14,13 @@ client = OpenAI(
 
 st.title("🎓 Cố vấn Định hướng Nghề nghiệp AI")
 st.caption("Dự án KHKT - Tích hợp Mô hình Holland & Dữ liệu Chuyên gia")
+
+# Nút làm mới cuộc trò chuyện giúp chống tràn bộ nhớ
 if st.button("🗑️ Làm mới cuộc trò chuyện"):
     st.session_state.messages = []
     st.session_state.messages.append({"role": "assistant", "content": "Xin chào! Tớ là Cố vấn Hướng nghiệp AI. Cậu tên là gì và hiện đang học lớp mấy rồi?"})
     st.rerun()
+
 # 3. QUẢN LÝ TIN NHẮN (SESSION STATE)
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -38,9 +41,9 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         full_response = ""
         
         try:
-            # Sử dụng mô hình NVIDIA miễn phí đã lấy ID
+            # Sử dụng mô hình Llama 3 8B miễn phí ổn định nhất của OpenRouter
             response = client.chat.completions.create(
-                model="google/gemma-2-9b-it:free",
+                model="meta-llama/llama-3-8b-instruct:free",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
