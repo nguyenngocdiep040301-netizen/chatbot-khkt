@@ -40,7 +40,7 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         try:
             # Sử dụng mô hình NVIDIA miễn phí đã lấy ID
             response = client.chat.completions.create(
-                model="qwen/qwen-2.5-7b-instruct:free",
+                model="google/gemma-2-9b-it:free",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
