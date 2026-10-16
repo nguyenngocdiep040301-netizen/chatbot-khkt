@@ -43,7 +43,7 @@ if prompt := st.chat_input("Nhập tin nhắn..."):
         try:
             # Sử dụng mô hình Llama 3 8B miễn phí ổn định nhất của OpenRouter
             response = client.chat.completions.create(
-                model="meta-llama/llama-3-8b-instruct:free",
+                model="meta-llama/llama-3.3-70b-instruct:free",
                 messages=st.session_state.messages,
                 temperature=0.7,
                 max_tokens=2048,
